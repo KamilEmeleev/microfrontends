@@ -1,0 +1,7 @@
+{
+    "name": "app1",
+    "exposes": {
+        "./App": "./shared/App",
+        "./Button": "./shared/Button"
+    }
+}

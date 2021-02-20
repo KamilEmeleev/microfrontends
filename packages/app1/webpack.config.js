@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {ModuleFederationPlugin} = require('webpack').container;
+const { ModuleFederationPlugin } = require('webpack').container;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
+const federationConfig = require('./federation.config.json');
 
 module.exports = {
     entry: './src/index',
@@ -50,17 +52,24 @@ module.exports = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'app1',
+            ...federationConfig,
             filename: 'remoteEntry.js',
-            exposes: {
-                './App': './shared/App',
-                './Button': './shared/Button',
-            },
             shared: [
                 'react',
                 'react-dom',
                 '@abdt/ornament',
                 '@material-ui/core/*',
+            ],
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'assets'),
+                    to: 'assets',
+                    globOptions: {
+                        ignore: ['*.DS_Store'],
+                    },
+                },
             ],
         }),
         new HtmlWebpackPlugin({

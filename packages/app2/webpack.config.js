@@ -55,9 +55,11 @@ module.exports = {
             exposes: {
                 './App': './shared/App',
             },
+            // Экспортируемые модули
             remotes: {
                 app1: 'app1@http://localhost:3001/remoteEntry.js',
             },
+            // ✨ Magic: Должно быть у хоста
             shared: [
                 'react',
                 'react-dom',

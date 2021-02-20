@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Grid, Container, Typography, Box } from '@abdt/ornament';
 
-// @ts-ignore
-const Button = React.lazy(() => import('app1/Button'));
+import { Button, ButtonProps } from 'app1/Button';
 
 const App = () => {
     const handleClick = () => {
@@ -16,6 +15,12 @@ const App = () => {
             })
         );
     };
+
+    // Для примера декларации типов
+    const buttonProps: ButtonProps = {
+        onClick: handleClick,
+    };
+
     return (
         <Container>
             <Grid container spacing={5}>
@@ -81,9 +86,7 @@ const App = () => {
                         правдоподобно, не имеет повторяющихся абзацей или
                         "невозможных" слов.
                     </Typography>
-                    <React.Suspense fallback="Загрузка...">
-                        <Button onClick={handleClick} />
-                    </React.Suspense>
+                    <Button {...buttonProps} />
                 </Grid>
             </Grid>
         </Container>

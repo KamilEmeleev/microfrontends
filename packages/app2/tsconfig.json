@@ -6,5 +6,8 @@
     },
     "include": [
         "src/**/*"
+    ],
+    "typeRoots": [
+        "./src/app1.d.ts"
     ]
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Grid, Container, Typography, Box } from '@abdt/ornament';
 
-import LocalButton from './Button';
+import { Button as LocalButton } from './Button';
 
 const App = () => {
     const handleClick = () => {
