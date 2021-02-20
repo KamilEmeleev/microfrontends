@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "module": "esnext",
+        "sourceMap": true,
+        "strict": true,
+        "jsx": "react",
+        "esModuleInterop": true,
+        "moduleResolution": "node"
+    },
+}
