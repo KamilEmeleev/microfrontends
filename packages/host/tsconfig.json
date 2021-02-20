@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "strict": true,
+        "jsx": "react",
+        "baseUrl": "./",
+        "paths": {
+            "@components": [
+                "src/components"
+            ],
+            "@hooks": [
+                "src/hooks"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
