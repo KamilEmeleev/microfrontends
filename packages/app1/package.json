@@ -22,12 +22,13 @@
         "css-loader": "^5.0.2",
         "resolve-url-loader": "^3.1.2",
         "copy-webpack-plugin": "^7.0.0",
-        "@pixability-ui/federated-types": "0.0.5"
+        "@pixability-ui/federated-types": "0.0.5",
+        "@module-federation/dashboard-plugin": "^1.1.0"
     },
     "scripts": {
         "start": "webpack-cli serve --mode development",
         "build": "webpack --mode production",
-        "serve": "serve dist -p 3002",
+        "serve": "serve dist -p 5001",
         "clean": "rimraf -rf dist && rimraf -rf node_modules",
         "eslint": "eslint --ext .ts,.tsx src --fix",
         "make-types": "make-federated-types --outputDir ./assets/types/"
