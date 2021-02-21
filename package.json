@@ -1,5 +1,8 @@
 {
     "name": "microfrontends",
+    "version": "0.0.0",
+    "description": "Microfrontends applications",
+    "author": "Kamil Emeleev <emeleev.kamil@gmail.com> (https://github.com/KamilEmeleev)",
     "private": true,
     "scripts": {
         "prebuild": "yarn install",
