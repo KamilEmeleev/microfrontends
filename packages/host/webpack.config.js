@@ -2,9 +2,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 const path = require('path');
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 module.exports = {
     entry: './src/index',
-    mode: 'development',
+    mode: isProduction ? 'production' : 'development',
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         port: 3000,
