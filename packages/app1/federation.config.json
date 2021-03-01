@@ -2,6 +2,7 @@
     "name": "app1",
     "exposes": {
         "./App": "./shared/App",
-        "./Button": "./shared/Button"
+        "./Button": "./shared/Button",
+        "./Copyright": "./shared/Copyright"
     }
 }

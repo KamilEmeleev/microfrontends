@@ -8,6 +8,7 @@
         "src/**/*"
     ],
     "typeRoots": [
-        "./src/app1.d.ts"
+        "./src/app1.d.ts",
+        "./src/types.d.ts"
     ]
 }

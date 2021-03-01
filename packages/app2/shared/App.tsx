@@ -2,6 +2,9 @@ import * as React from 'react';
 import { Grid, Container, Typography, Box } from '@abdt/ornament';
 
 import { Button, ButtonProps } from 'app1/Button';
+import { Copyright } from 'app1/Copyright';
+
+customElements.define('my-element', Copyright);
 
 const App = () => {
     const handleClick = () => {
@@ -87,6 +90,7 @@ const App = () => {
                         "невозможных" слов.
                     </Typography>
                     <Button {...buttonProps} />
+                    <my-element />
                 </Grid>
             </Grid>
         </Container>
