@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 const DashboardPlugin = require('@module-federation/dashboard-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const path = require('path');
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -45,7 +46,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.tsx?$/,
+                test: /\.ts(x?)$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 options: {
@@ -71,6 +72,7 @@ module.exports = {
         ],
     },
     plugins: [
+        new ForkTsCheckerWebpackPlugin(),
         new ModuleFederationPlugin({
             name: 'host',
             remotes: {
@@ -78,10 +80,21 @@ module.exports = {
                 app2: 'app2@http://localhost:5002/remoteEntry.js',
             },
             shared: [
-                'react',
-                'react-dom',
-                '@abdt/ornament',
-                '@material-ui/core/*',
+                {
+                    react: {
+                        singleton: true,
+                    },
+                },
+                {
+                    'react-dom': {
+                        singleton: true,
+                    },
+                },
+                {
+                    '@abdt/ornament': {
+                        singleton: true,
+                    },
+                },
             ],
         }),
         new HtmlWebpackPlugin({

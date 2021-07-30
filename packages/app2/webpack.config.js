@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 const DashboardPlugin = require('@module-federation/dashboard-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const path = require('path');
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -52,6 +53,7 @@ module.exports = {
         ],
     },
     plugins: [
+        new ForkTsCheckerWebpackPlugin(),
         new ModuleFederationPlugin({
             name: 'app2',
             filename: 'remoteEntry.js',
@@ -64,10 +66,21 @@ module.exports = {
             },
             // ✨ Magic: Должно быть у хоста
             shared: [
-                'react',
-                'react-dom',
-                '@abdt/ornament',
-                '@material-ui/core/*',
+                {
+                    react: {
+                        singleton: true,
+                    },
+                },
+                {
+                    'react-dom': {
+                        singleton: true,
+                    },
+                },
+                {
+                    '@abdt/ornament': {
+                        singleton: true,
+                    },
+                },
             ],
         }),
         new HtmlWebpackPlugin({
