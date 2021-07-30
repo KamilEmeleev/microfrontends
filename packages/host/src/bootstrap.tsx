@@ -8,7 +8,7 @@ import { SnackbarMessage } from '@components';
 import App from './App';
 
 const AppWrapper = () => (
-    <ThemeLayout seed="host">
+    <ThemeLayout>
         <SnackbarProvider
             autoHideDuration={10000}
             anchorOrigin={{
