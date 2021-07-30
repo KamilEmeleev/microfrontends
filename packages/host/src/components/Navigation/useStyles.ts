@@ -1,4 +1,4 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@abdt/ornament';
 import { colors } from '@abdt/design-tokens';
 
 const useStyles = makeStyles((theme: Theme) =>

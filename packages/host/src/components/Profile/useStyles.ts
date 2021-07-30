@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from '@material-ui/core';
+import { createStyles, makeStyles } from '@abdt/ornament';
 
 const useStyles = makeStyles(() =>
     createStyles({

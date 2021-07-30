@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import cn from 'classnames';
 import { ChevronUp, ChevronDown, Point } from '@abdt/icons';

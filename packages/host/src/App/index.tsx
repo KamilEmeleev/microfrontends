@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { useSnackbar } from 'notistack';
 import { useState, useCallback, useEffect } from 'react';
-import { Box, Drawer, Typography } from '@abdt/ornament';
-import { ErrorBoundary } from 'react-error-boundary';
+import { Drawer } from '@abdt/ornament';
 
 import '@abdt/fonts';
 import './App.css';

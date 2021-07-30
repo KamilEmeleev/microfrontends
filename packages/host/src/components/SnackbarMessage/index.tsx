@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import * as React from 'react';
 import { SnackbarMessage as SnackbarMessageType, SnackbarKey } from 'notistack';
 
 export type GenerateMessageType = {
@@ -20,4 +20,4 @@ const SnackbarMessage = (
     return <div ref={ref}>{props.message}</div>;
 };
 
-export default forwardRef(SnackbarMessage);
+export default React.forwardRef(SnackbarMessage);
