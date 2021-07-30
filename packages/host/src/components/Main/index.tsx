@@ -1,10 +1,8 @@
 import * as React from 'react';
-import cn from 'classnames';
 import { Switch, Route } from 'react-router-dom';
 
-import { Box, Container, Grid, Typography } from '@abdt/ornament';
+import { Box, Container, Grid, Typography, styled, css } from '@abdt/ornament';
 import { ErrorBoundary } from 'react-error-boundary';
-import useStyles from './useStyles';
 
 import Welcome from '../Welcome';
 
@@ -33,14 +31,37 @@ function ErrorFallback({ error }: { error: Error }) {
     );
 }
 
+const drawerWidth = 240;
+
+const StyledMain = styled('main')<{ open?: boolean }>`
+    flex-grow: 1;
+    z-index: 11;
+    transition: ${({ theme }) =>
+        theme.transitions.create('margin', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        })};
+    margin-left: ${-drawerWidth};
+    height: 100vh;
+    overflow: auto;
+    border-radius: 8px 0 0 8px;
+    background-color: #ffffff;
+    ${({ open }) =>
+        open &&
+        css`
+            flex-grow: 1;
+            transition: ${({ theme }) =>
+                theme.transitions.create('margin', {
+                    easing: theme.transitions.easing.sharp,
+                    duration: theme.transitions.duration.leavingScreen,
+                })};
+            margin-left: 0;
+        `}
+`;
+
 const Main: React.FC<MainProps> = ({ open }) => {
-    const classes = useStyles();
     return (
-        <main
-            className={cn(classes.content, {
-                [classes.contentShift]: open,
-            })}
-        >
+        <StyledMain open={open}>
             <Switch>
                 <Route path="/" exact>
                     <Welcome />
@@ -60,7 +81,7 @@ const Main: React.FC<MainProps> = ({ open }) => {
                     </React.Suspense>
                 </Route>
             </Switch>
-        </main>
+        </StyledMain>
     );
 };
 
