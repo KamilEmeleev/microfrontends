@@ -7,7 +7,7 @@ import { Copyright } from './Copyright';
 try {
     customElements.define('wc-copyright', Copyright);
 } catch (err) {
-    console.warn('err');
+    console.warn(err);
 }
 
 const App = () => {
