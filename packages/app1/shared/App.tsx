@@ -2,6 +2,13 @@ import * as React from 'react';
 import { Grid, Container, Typography, Box } from '@abdt/ornament';
 
 import { Button as LocalButton } from './Button';
+import { Copyright } from './Copyright';
+
+try {
+    customElements.define('wc-copyright', Copyright);
+} catch (err) {
+    console.warn('err');
+}
 
 const App = () => {
     const handleClick = () => {
@@ -41,6 +48,7 @@ const App = () => {
                         набираются новые ФинТех стартапы.
                     </Typography>
                     <LocalButton onClick={handleClick} />
+                    <wc-copyright />
                 </Grid>
             </Grid>
         </Container>

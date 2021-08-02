@@ -4,7 +4,11 @@ import { Grid, Container, Typography, Box } from '@abdt/ornament';
 import { Button, ButtonProps } from 'app1/Button';
 import { Copyright } from 'app1/Copyright';
 
-customElements.define('my-element', Copyright);
+try {
+    customElements.define('wc-copyright', Copyright);
+} catch (err) {
+    console.warn('err');
+}
 
 const App = () => {
     const handleClick = () => {
@@ -90,7 +94,7 @@ const App = () => {
                         "невозможных" слов.
                     </Typography>
                     <Button {...buttonProps} />
-                    <my-element />
+                    <wc-copyright />
                 </Grid>
             </Grid>
         </Container>

@@ -1,32 +1,61 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { typography, palette } from '@abdt/design-tokens';
+import { styled, StyleSheetManager, ThemeLayout, css } from '@abdt/ornament';
+
+const StyledParagraph = styled('p')`
+    ${({ theme }) => css`
+        font-family: ${typography.text.xl.fontFamily};
+        color: ${palette.text.primary};
+        font-size: ${typography.text.xl.fontSize};
+        font-weight: ${typography.text.xl.fontWeight};
+        line-height: ${typography.text.xl.lineHeight};
+        ${theme.breakpoints.down('sm')} {
+            font-family: ${typography.text.l.fontFamily};
+            color: ${palette.text.primary};
+            font-size: ${typography.text.l.fontSize};
+            font-weight: ${typography.text.l.fontWeight};
+            line-height: ${typography.text.l.lineHeight};
+        }
+    `};
+`;
 
 const CopyrightComponent = () => {
-    const styles = `
-        p {
-            color: red !important;
-        }
-    `;
     const currentYear = new Date().getFullYear();
     return (
         <>
-            <style dangerouslySetInnerHTML={{ __html: styles }} />
-            <p>© {currentYear} Ак Барс Цифровые Технологии</p>
+            <StyledParagraph>
+                © {currentYear} Ак Барс Цифровые Технологии
+            </StyledParagraph>
         </>
     );
 };
 
 export class Copyright extends HTMLElement {
+    private readonly styleHost: HTMLElement;
+
+    private readonly mountPoint: HTMLElement;
+
     constructor() {
         super();
-        this.addEventListener('click', () => alert('Привет!'));
+        this.styleHost = document.createElement('div');
+        this.mountPoint = document.createElement('div');
+        this.attachShadow({ mode: 'open' });
+        this.addEventListener('click', () => alert('https://akbars.digital/'));
     }
 
     connectedCallback() {
-        const shadowRoot = this.attachShadow({ mode: 'open' });
-        // const name = this?.getAttribute('name') || '';
+        this.shadowRoot?.appendChild(this.styleHost);
+        this.shadowRoot?.appendChild(this.mountPoint);
 
-        ReactDOM.render(<CopyrightComponent />, shadowRoot);
+        ReactDOM.render(
+            <StyleSheetManager target={this.styleHost}>
+                <ThemeLayout>
+                    <CopyrightComponent />
+                </ThemeLayout>
+            </StyleSheetManager>,
+            this.mountPoint
+        );
     }
 }
 

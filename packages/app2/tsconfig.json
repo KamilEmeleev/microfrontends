@@ -1,14 +1,9 @@
 {
-    "compilerOptions": {
-        "sourceMap": true,
-        "strict": true,
-        "jsx": "react"
-    },
+    "extends": "../../tsconfig",
     "include": [
         "src/**/*"
     ],
     "typeRoots": [
-        "./src/app1.d.ts",
-        "./src/types.d.ts"
+        "*/**/*.d.ts"
     ]
 }

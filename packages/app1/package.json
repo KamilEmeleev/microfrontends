@@ -6,7 +6,8 @@
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "@abdt/icons": "^0.0.32",
-        "@abdt/ornament": "^0.2.4"
+        "@abdt/ornament": "^0.2.4",
+        "@abdt/design-tokens": "^0.0.10"
     },
     "devDependencies": {
         "@babel/core": "7.12.10",
@@ -35,7 +36,7 @@
         "build": "webpack --mode production",
         "serve": "serve dist -p 5001",
         "clean": "rimraf -rf dist && rimraf -rf node_modules",
-        "eslint": "eslint --ext .ts,.tsx src --fix",
+        "eslint": "eslint --ext .ts,.tsx src shared --fix",
         "make-types": "make-federated-types --outputDir ./assets/types/"
     }
 }

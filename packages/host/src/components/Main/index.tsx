@@ -10,9 +10,7 @@ interface MainProps {
     open?: boolean;
 }
 
-// @ts-ignore
 const App1 = React.lazy(() => import('app1/App'));
-// @ts-ignore
 const App2 = React.lazy(() => import('app2/App'));
 
 function ErrorFallback({ error }: { error: Error }) {

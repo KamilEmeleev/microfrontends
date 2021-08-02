@@ -33,6 +33,6 @@
         "build": "webpack --mode production",
         "serve": "serve dist -p 5002",
         "clean": "rimraf -rf dist && rimraf -rf node_modules",
-        "eslint": "eslint --ext .ts,.tsx src --fix"
+        "eslint": "eslint --ext .ts,.tsx src shared --fix"
     }
 }
