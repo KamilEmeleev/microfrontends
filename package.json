@@ -7,7 +7,7 @@
     "scripts": {
         "prebuild": "yarn install",
         "build": "yarn workspaces run build",
-        "clean": "yarn workspaces run clean && rimraf -rf node_modules && rimraf -rf yarn.lock",
+        "clean": "yarn workspaces run clean && rimraf -rf yarn.lock && rimraf -rf node_modules",
         "eslint": "wsrun --parallel eslint",
         "serve": "wsrun --parallel serve",
         "prestart": "yarn install",

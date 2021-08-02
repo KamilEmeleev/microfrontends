@@ -6,7 +6,7 @@
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "@abdt/icons": "^0.0.32",
-        "@abdt/ornament": "^0.2.4"
+        "@abdt/ornament": "0.2.4"
     },
     "devDependencies": {
         "@babel/core": "7.12.10",

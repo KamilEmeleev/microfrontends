@@ -75,6 +75,7 @@ module.exports = {
                         singleton: true,
                     },
                 },
+                '@material-ui/styles',
             ],
         }),
         new CopyWebpackPlugin({
