@@ -1,18 +1,17 @@
 import * as React from 'react';
-import { IconButton } from '@abdt/ornament';
-import { Avatar } from './Avatar';
-import useStyles from './useStyles';
+import { IconButton, styled } from '@abdt/ornament';
+import { OwlIndigo } from '@abdt/avatars';
+
+const IconButtonStyled = styled(IconButton)`
+    margin-top: auto;
+    padding: 0;
+`;
 
 const Profile: React.FC = () => {
-    const classes = useStyles();
     return (
-        <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            className={classes.avatar}
-        >
-            <Avatar />
-        </IconButton>
+        <IconButtonStyled color="inherit" aria-label="open drawer">
+            <OwlIndigo />
+        </IconButtonStyled>
     );
 };
 

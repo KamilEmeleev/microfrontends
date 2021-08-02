@@ -9,6 +9,7 @@
         "@abdt/design-tokens": "^0.0.10",
         "@abdt/fonts": "^0.0.3",
         "@abdt/ornament": "^0.2.4",
+        "@abdt/avatars": "^0.0.3",
         "classnames": "^2.2.6",
         "react-router-dom": "^5.2.0",
         "notistack": "^1.0.3",
