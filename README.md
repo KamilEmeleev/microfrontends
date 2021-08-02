@@ -1,6 +1,10 @@
 # Microfrontends Example
 
+![img](https://raw.githubusercontent.com/KamilEmeleev/microfrontends/master/preview.jpg)
+
 My presentation: ["Делаем Microfrontends"](https://docs.google.com/presentation/d/1dv0hLid5EK28r27c4mrrLq8oJBvUT1u0Q5QXvbqMtfA/edit?usp=sharing)
+
+## Development
 
 Run `yarn start` or `yarn dev`.
 
