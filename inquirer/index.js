@@ -1,12 +1,9 @@
 /**
  * Modules prompt
  */
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const inquirer = require('inquirer');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const execa = require('execa');
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 inquirer.registerPrompt('table', require('inquirer-table-prompt'));
 
 const table = [
@@ -36,6 +33,10 @@ const table = [
             {
                 name: 'app2',
                 value: 'app2',
+            },
+            {
+                name: 'app3',
+                value: 'app3',
             },
         ],
         pageSize: 10,

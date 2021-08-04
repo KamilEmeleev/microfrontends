@@ -5,6 +5,7 @@ import { Box, Container, Grid, Typography, styled, css } from '@abdt/ornament';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import Welcome from '../Welcome';
+import Frame from '../Frame';
 
 interface MainProps {
     open?: boolean;
@@ -77,6 +78,12 @@ const Main: React.FC<MainProps> = ({ open }) => {
                             <App2 />
                         </ErrorBoundary>
                     </React.Suspense>
+                </Route>
+                <Route path="/app3">
+                    <Frame url="http://localhost:5003" />
+                </Route>
+                <Route path="/app4">
+                    <Frame url="https://social-card.ru" />
                 </Route>
             </Switch>
         </StyledMain>

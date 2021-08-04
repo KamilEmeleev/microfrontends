@@ -92,6 +92,50 @@ const Navigation: React.FC = () => {
                             />
                         </ListItem>
                     </Link>
+                    <Link to="/app3" className={classes.link}>
+                        <ListItem
+                            dense
+                            button
+                            classes={{
+                                root: classes.nested,
+                                button: classes.listButton,
+                            }}
+                            disableTouchRipple
+                            disableRipple
+                        >
+                            <ListItemText
+                                classes={{
+                                    primary: cn(classes.text, {
+                                        [classes.isActive]:
+                                            location.pathname === '/app3',
+                                    }),
+                                }}
+                                primary="App 3"
+                            />
+                        </ListItem>
+                    </Link>
+                    <Link to="/app4" className={classes.link}>
+                        <ListItem
+                            dense
+                            button
+                            classes={{
+                                root: classes.nested,
+                                button: classes.listButton,
+                            }}
+                            disableTouchRipple
+                            disableRipple
+                        >
+                            <ListItemText
+                                classes={{
+                                    primary: cn(classes.text, {
+                                        [classes.isActive]:
+                                            location.pathname === '/app4',
+                                    }),
+                                }}
+                                primary="App 4"
+                            />
+                        </ListItem>
+                    </Link>
                 </List>
             </Collapse>
         </List>

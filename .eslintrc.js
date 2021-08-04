@@ -16,5 +16,11 @@ module.exports = {
                 'no-unused-expressions': 0,
             },
         },
+        {
+            files: ['inquirer/index.js'],
+            rules: {
+                '@typescript-eslint/no-var-requires': 0,
+            },
+        },
     ],
 };
