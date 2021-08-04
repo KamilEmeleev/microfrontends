@@ -4,8 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Box, Container, Grid, Typography, styled, css } from '@abdt/ornament';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import Welcome from '../Welcome';
-import Frame from '../Frame';
+import { Frame, Progress, Welcome } from './components';
 
 interface MainProps {
     open?: boolean;
@@ -67,22 +66,22 @@ const Main: React.FC<MainProps> = ({ open }) => {
                 </Route>
                 <Route path="/app1">
                     <ErrorBoundary FallbackComponent={ErrorFallback}>
-                        <React.Suspense fallback="Загрузка...">
+                        <React.Suspense fallback={<Progress />}>
                             <App1 />
                         </React.Suspense>
                     </ErrorBoundary>
                 </Route>
                 <Route path="/app2">
-                    <React.Suspense fallback="Загрузка...">
+                    <React.Suspense fallback={<Progress />}>
                         <ErrorBoundary FallbackComponent={ErrorFallback}>
                             <App2 />
                         </ErrorBoundary>
                     </React.Suspense>
                 </Route>
-                <Route path="/app3">
+                <Route path="/app3" key="3">
                     <Frame url="http://localhost:5003" />
                 </Route>
-                <Route path="/app4">
+                <Route path="/app4" key="4">
                     <Frame url="https://social-card.ru" />
                 </Route>
             </Switch>
