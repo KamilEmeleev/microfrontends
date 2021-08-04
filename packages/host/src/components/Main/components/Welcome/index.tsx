@@ -9,7 +9,7 @@ const Welcome = () => {
                     <Box mt={5} />
                     {/* eslint-disable-next-line jsx-a11y/accessible-emoji */}
                     <Typography variant="h2" component="h1" gutterBottom>
-                        Welcome to LiveSpace 🚀
+                        Welcome to LiveSpace 2.0 🚀
                     </Typography>
                     <Typography variant="body1" component="p">
                         <strong>Live Space</strong> - экосистема, позволяющая
