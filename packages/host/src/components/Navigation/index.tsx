@@ -12,6 +12,7 @@ import {
 } from '@abdt/ornament';
 import { colors } from '@abdt/design-tokens';
 import useStyles from './useStyles';
+import menu from './helper';
 
 const Navigation: React.FC = () => {
     const [open, setOpen] = useState(true);
@@ -48,94 +49,30 @@ const Navigation: React.FC = () => {
             </ListItem>
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div">
-                    <Link to="/app1" className={classes.link}>
-                        <ListItem
-                            dense
-                            button
-                            classes={{
-                                root: classes.nested,
-                                button: classes.listButton,
-                            }}
-                            disableTouchRipple
-                            disableRipple
-                        >
-                            <ListItemText
+                    {menu.map(({ title, link }, index) => (
+                        <Link key={index} to={link} className={classes.link}>
+                            <ListItem
+                                dense
+                                button
                                 classes={{
-                                    primary: cn(classes.text, {
-                                        [classes.isActive]:
-                                            location.pathname === '/app1',
-                                    }),
+                                    root: classes.nested,
+                                    button: classes.listButton,
                                 }}
-                                primary="App 1"
-                            />
-                        </ListItem>
-                    </Link>
-                    <Link to="/app2" className={classes.link}>
-                        <ListItem
-                            dense
-                            button
-                            classes={{
-                                root: classes.nested,
-                                button: classes.listButton,
-                            }}
-                            disableTouchRipple
-                            disableRipple
-                        >
-                            <ListItemText
-                                classes={{
-                                    primary: cn(classes.text, {
-                                        [classes.isActive]:
-                                            location.pathname === '/app2',
-                                    }),
-                                }}
-                                primary="App 2"
-                            />
-                        </ListItem>
-                    </Link>
-                    <Link to="/app3" className={classes.link}>
-                        <ListItem
-                            dense
-                            button
-                            classes={{
-                                root: classes.nested,
-                                button: classes.listButton,
-                            }}
-                            disableTouchRipple
-                            disableRipple
-                        >
-                            <ListItemText
-                                classes={{
-                                    primary: cn(classes.text, {
-                                        [classes.isActive]:
-                                            location.pathname === '/app3',
-                                    }),
-                                }}
-                                primary="App 3"
-                            />
-                        </ListItem>
-                    </Link>
-                    <Link to="/app4" className={classes.link}>
-                        <ListItem
-                            dense
-                            button
-                            classes={{
-                                root: classes.nested,
-                                button: classes.listButton,
-                            }}
-                            disableTouchRipple
-                            disableRipple
-                        >
-                            <ListItemText
-                                classes={{
-                                    primary: cn(classes.text, {
-                                        [classes.isActive]:
-                                            location.pathname === '/app4',
-                                    }),
-                                }}
-                                primary="App 4"
-                            />
-                        </ListItem>
-                    </Link>
+                                disableTouchRipple
+                                disableRipple
+                            >
+                                <ListItemText
+                                    classes={{
+                                        primary: cn(classes.text, {
+                                            [classes.isActive]:
+                                                location.pathname === link,
+                                        }),
+                                    }}
+                                    primary={title}
+                                />
+                            </ListItem>
+                        </Link>
+                    ))}
                 </List>
             </Collapse>
         </List>
