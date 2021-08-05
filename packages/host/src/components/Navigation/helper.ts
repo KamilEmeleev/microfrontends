@@ -4,4 +4,6 @@ export default [
     { title: 'App3', link: '/app3' },
     { title: 'App4', link: '/app4' },
     { title: 'App5', link: '/app5' },
+    { title: 'App6', link: '/app6' },
+    { title: 'App7', link: '/app7' },
 ];

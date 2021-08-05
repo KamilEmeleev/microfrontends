@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 const DashboardPlugin = require('@module-federation/dashboard-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -72,6 +73,17 @@ module.exports = {
         ],
     },
     plugins: [
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'public'),
+                    to: '',
+                    globOptions: {
+                        ignore: ['*.DS_Store', '**/index.html'],
+                    },
+                },
+            ],
+        }),
         new ForkTsCheckerWebpackPlugin(),
         new ModuleFederationPlugin({
             name: 'host',

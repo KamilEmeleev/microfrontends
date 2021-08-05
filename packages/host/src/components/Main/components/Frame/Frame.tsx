@@ -19,7 +19,6 @@ const Iframe = styled('iframe')<{ isLoading: boolean }>`
         `}
 `;
 
-// https://habr.com/ru/company/yandex/blog/554568/
 const Frame: React.FC<IFrameProps> = ({ url }) => {
     const [loading, setLoading] = useState(true);
     const { setFrame } = useContext(AppContext);

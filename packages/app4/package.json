@@ -1,19 +1,14 @@
 {
-    "name": "@microfrontends/host",
+    "name": "@microfrontends/app4",
     "version": "0.0.0",
     "private": true,
     "dependencies": {
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "@abdt/icons": "^0.0.32",
-        "@abdt/design-tokens": "^0.0.10",
-        "@abdt/fonts": "^0.0.3",
         "@abdt/ornament": "0.2.4",
-        "@abdt/avatars": "^0.0.3",
-        "classnames": "^2.2.6",
-        "react-router-dom": "^5.2.0",
-        "notistack": "^1.0.3",
-        "react-error-boundary": "^3.1.0",
+        "@abdt/fonts": "^0.0.3",
+        "@material-ui/core": "^4.12.3",
         "use-typed-event-listener": "^3.0.0"
     },
     "devDependencies": {
@@ -22,8 +17,6 @@
         "@babel/preset-typescript": "7.12.7",
         "@types/react": "^17.0.1",
         "@types/react-dom": "^17.0.1",
-        "@types/classnames": "^2.2.11",
-        "@types/react-router-dom": "^5.1.7",
         "babel-loader": "8.2.2",
         "bundle-loader": "0.5.6",
         "html-webpack-plugin": "4.5.2",
@@ -35,15 +28,14 @@
         "style-loader": "^2.0.0",
         "css-loader": "^5.0.2",
         "resolve-url-loader": "^3.1.2",
-        "file-loader": "^6.2.0",
         "@module-federation/dashboard-plugin": "^1.1.0",
         "fork-ts-checker-webpack-plugin": "^6.2.13",
-        "copy-webpack-plugin": "^9.0.1"
+        "file-loader": "^6.2.0"
     },
     "scripts": {
         "start": "webpack-cli serve --mode development",
         "build": "webpack --mode production",
-        "serve": "serve dist -p 5000",
+        "serve": "serve dist -p 5004",
         "clean": "rimraf -rf dist && rimraf -rf node_modules",
         "eslint": "eslint --ext .ts,.tsx src --fix"
     }

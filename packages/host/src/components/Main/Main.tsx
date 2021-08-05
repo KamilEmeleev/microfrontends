@@ -4,7 +4,14 @@ import { Switch, Route } from 'react-router-dom';
 import { styled, css } from '@abdt/ornament';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { Frame, Progress, Welcome, Bundle, ErrorFallback } from './components';
+import {
+    Frame,
+    Progress,
+    Welcome,
+    FIF,
+    FIF_SR,
+    ErrorFallback,
+} from './components';
 
 const App1 = React.lazy(() => import('app1/App'));
 const App2 = React.lazy(() => import('app2/App'));
@@ -69,7 +76,15 @@ const Main: React.FC<IMainProps> = ({ open }) => {
                     <Frame url="https://social-card.ru" />
                 </Route>
                 <Route path="/app5" key="5">
-                    <Bundle url="https://cdn.social-card.ru/payment/main.js" />
+                    <FIF url="https://cdn.social-card.ru/payment/main.js" />
+                </Route>
+                <Route path="/app6" key="6">
+                    <FIF_SR url="http://localhost:5000/script.js">
+                        <button>Outer</button>
+                    </FIF_SR>
+                </Route>
+                <Route path="/app7" key="7">
+                    <FIF_SR url="http://localhost:5004/main.js" />
                 </Route>
             </Switch>
         </StyledMain>
