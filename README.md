@@ -16,11 +16,7 @@ Run `yarn start` or `yarn dev`.
 
 ## What I use in applications!
 
-- root - React + Module Federation
-- app1 - React + Module Federation
-- app2 - React + Module Federation
-- app3 - Iframe with postMessage
-- app4 - Iframe
-- app5 - Injecting bundle in a Friendly Iframe
-- app6 - Friendly Iframe and ShadowDOM
-- app7 - Friendly Iframe and ShadowDOM, React + Ornament (extension Material-UI) 🥳
+- Webpack + Module Federation
+- Iframe with postMessage
+- Injecting bundle in a Friendly Iframe
+- Friendly Iframe and ShadowDOM
