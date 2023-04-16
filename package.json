@@ -25,6 +25,7 @@
     "eslint-config-abdt": "^0.2.2",
     "eslint-plugin-prettier": "^4.0.0",
     "execa": "^5.0.0",
+    "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^6.2.13",
     "husky": "^8.0.3",
     "inquirer": "^7.3.3",
@@ -43,6 +44,6 @@
     ]
   },
   "dependencies": {
-    "rimraf": "^5.0.0"
+    "@ornament-ui/kit": "^0.2.7"
   }
 }

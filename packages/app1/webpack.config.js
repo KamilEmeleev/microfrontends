@@ -52,6 +52,19 @@ module.exports = {
           presets: ['@babel/preset-react', '@babel/preset-typescript'],
         },
       },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg|pdf|jpg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+              esModule: false,
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [

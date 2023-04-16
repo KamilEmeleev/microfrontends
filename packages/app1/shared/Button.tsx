@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Button as Btn } from '@abdt/ornament';
+import { Button as Btn } from '@ornament-ui/kit/Button';
 
 export interface ButtonProps {
   onClick?: () => void;

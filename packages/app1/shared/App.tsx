@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-import { Grid, Container, Typography, Box } from '@abdt/ornament';
+import { Container } from '@ornament-ui/kit/Container';
+import { Grid, GridItem } from '@ornament-ui/kit/Grid';
+import { Typography } from '@ornament-ui/kit/Typography';
 
 import { Button as LocalButton } from './Button';
 import { Copyright } from './Copyright';
@@ -25,20 +27,21 @@ const App = () => {
   };
 
   return (
-    <Container>
-      <Grid container spacing={5}>
-        <Grid item xs={12} sm={12}>
-          <Box mt={5} />
-          <Typography variant="h2" component="h1" gutterBottom>
+    <Container size="s" position="center">
+      <Grid>
+        <GridItem col={12}>
+          <Typography variant="heading-2xl" defaultMargin>
             Application 1
           </Typography>
-          <Typography variant="body1" component="p" gutterBottom>
-            <strong>Ак Барс Цифровые Технологии</strong> - центр развития Ак
-            Барс Банка. В нем проектируются и внедряются цифровые экосистемы для
-            решения финансовых и повседневных (lifestyle) задач клиентов нашего
-            банка.
+          <Typography defaultMargin>
+            <Typography variant="text-m_1" display="inline">
+              Ак Барс Цифровые Технологии
+            </Typography>{' '}
+            - центр развития Ак Барс Банка. В нем проектируются и внедряются
+            цифровые экосистемы для решения финансовых и повседневных
+            (lifestyle) задач клиентов нашего банка.
           </Typography>
-          <Typography variant="body1" component="p" gutterBottom>
+          <Typography defaultMargin>
             В компании выстроен полный цикл разработки продуктов, включая этапы
             исследования прототипирования пользовательских интерфейсов,
             разработки программного обеспечения, продвижения готовых продуктов.
@@ -49,7 +52,7 @@ const App = () => {
           </Typography>
           <LocalButton onClick={handleClick} />
           <wc-copyright />
-        </Grid>
+        </GridItem>
       </Grid>
     </Container>
   );
