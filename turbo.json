@@ -1,0 +1,19 @@
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "eslint": {
+      "outputs": []
+    },
+    "start": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    },
+    "clean": {},
+    "type-check": {}
+  }
+}

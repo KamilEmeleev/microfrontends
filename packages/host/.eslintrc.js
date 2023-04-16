@@ -1,3 +1,3 @@
 module.exports = {
-    ignorePatterns: ['*/**/*.d.ts', 'src/index.tsx'],
+  ignorePatterns: ['*/**/*.d.ts', 'src/index.ts'],
 };

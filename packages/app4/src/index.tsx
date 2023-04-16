@@ -1,59 +1,67 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 
 import { themes } from '@abdt/ornament';
+import {
+  StylesProvider,
+  jssPreset,
+  ThemeProvider,
+} from '@material-ui/core/styles';
 import { create } from 'jss';
-import { StylesProvider, jssPreset, ThemeProvider } from '@material-ui/core/styles';
+import * as ReactDOM from 'react-dom';
 
 import App from './App';
 
 type Config = {
-    container: HTMLElement;
-    global: Document
+  container: HTMLElement;
+  global: Document;
 };
 
 declare global {
-    interface Window {
-        init: ({container, global}: Config) => void;
-        widget: Widget;
-    }
+  interface Window {
+    init: ({ container, global }: Config) => void;
+    widget: Widget;
+  }
 }
 
 class Widget {
-    private shadowRoot: ShadowRoot;
-    private mountPoint: HTMLDivElement;
-    private styles: HTMLDivElement;
-    private config: { container: HTMLElement; global: Document};
+  private shadowRoot: ShadowRoot;
 
-    constructor(config: Config) {
-        const { container } = config;
-        this.config = config;
-        this.shadowRoot = container.attachShadow({ mode: 'open' });
-        this.mountPoint = document.createElement('div');
-        this.styles = document.createElement('div');
-        this.shadowRoot?.appendChild(this.styles);
-    }
+  private mountPoint: HTMLDivElement;
 
-    init() {
-        const { global } = this.config;
-        const jss = create({
-            ...jssPreset(),
-            insertionPoint: this.styles,
-        });
+  private styles: HTMLDivElement;
 
-        this.shadowRoot?.appendChild(this.mountPoint);
+  private config: { container: HTMLElement; global: Document };
 
-        ReactDOM.render(
-            <StylesProvider jss={jss}>
-                <ThemeProvider theme={themes.base}>
-                    <App global={global}/>
-                </ThemeProvider>
-            </StylesProvider>,
-            this.mountPoint,
-        );
-    }
+  constructor(config: Config) {
+    const { container } = config;
+    this.config = config;
+    this.shadowRoot = container.attachShadow({ mode: 'open' });
+    this.mountPoint = document.createElement('div');
+    this.styles = document.createElement('div');
+    this.shadowRoot?.appendChild(this.styles);
+  }
+
+  init() {
+    const { global } = this.config;
+
+    const jss = create({
+      ...jssPreset(),
+      insertionPoint: this.styles,
+    });
+
+    this.shadowRoot?.appendChild(this.mountPoint);
+
+    ReactDOM.render(
+      <StylesProvider jss={jss}>
+        <ThemeProvider theme={themes.base}>
+          <App global={global} />
+        </ThemeProvider>
+      </StylesProvider>,
+      this.mountPoint
+    );
+  }
 }
 
 window.init = (config: Config) => {
-    window.widget = new Widget(config);
+  window.widget = new Widget(config);
 };

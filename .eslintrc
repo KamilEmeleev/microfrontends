@@ -1,0 +1,72 @@
+{
+  "extends": ["abdt", "abdt/react", "abdt/typescript"],
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "padding-line-between-statements": "off",
+    "@typescript-eslint/padding-line-between-statements": [
+      "warn",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": [
+          "multiline-const",
+          "multiline-let",
+          "multiline-expression"
+        ]
+      },
+      {
+        "blankLine": "always",
+        "prev": [
+          "multiline-const",
+          "multiline-let",
+          "multiline-expression"
+        ],
+        "next": "*"
+      },
+      { "blankLine": "always", "prev": "*", "next": "block" },
+      { "blankLine": "always", "prev": "block", "next": "*" },
+      { "blankLine": "always", "prev": "*", "next": "block-like" },
+      { "blankLine": "always", "prev": "block-like", "next": "*" },
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": ["interface", "type"]
+      }
+    ],
+    "jsx-a11y/no-autofocus": 0,
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      }
+    ],
+    "import/no-extraneous-dependencies": 0,
+    "no-shadow": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "no-restricted-syntax": 0,
+    "no-bitwise": 0
+  }
+}
