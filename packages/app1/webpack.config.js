@@ -83,12 +83,6 @@ module.exports = {
             singleton: true,
           },
         },
-        {
-          '@abdt/ornament': {
-            singleton: true,
-          },
-        },
-        '@material-ui/styles',
       ],
     }),
     new CopyWebpackPlugin({

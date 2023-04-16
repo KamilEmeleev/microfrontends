@@ -1,16 +1,14 @@
 import * as React from 'react';
 
+import { Button } from '@ornament-ui/kit/Button';
+import { Container } from '@ornament-ui/kit/Container';
+import { Grid, GridItem } from '@ornament-ui/kit/Grid';
 import {
-  Box,
-  Container,
-  Grid,
-  ThemeLayout,
-  Typography,
-  Button,
-} from '@abdt/ornament';
-import useEventListener from 'use-typed-event-listener';
-
-import '@abdt/fonts';
+  ThemeProvider,
+  themeOrnamentDefault,
+} from '@ornament-ui/kit/ThemeProvider';
+import { Typography } from '@ornament-ui/kit/Typography';
+import { useEventListener } from '@ornament-ui/kit/useEventListener';
 
 const App = () => {
   const sendMessage = (type: string, payload?: unknown) => {
@@ -23,15 +21,6 @@ const App = () => {
     );
   };
 
-  const listener = (event: MessageEvent) => {
-    if (event.origin !== 'http://localhost:5001') {
-      // что-то прислали с неизвестного домена - проигнорируем..
-      return;
-    }
-
-    console.log(`получено: ${event.data}`);
-  };
-
   const handleClick = () => {
     sendMessage('host:root-generate-message-event', {
       variant: 'info',
@@ -40,25 +29,37 @@ const App = () => {
     });
   };
 
-  useEventListener(window, 'message', listener);
+  useEventListener({
+    eventName: 'message',
+    handler: (event) => {
+      // TODO: problem with type of event
+      const e = event as MessageEvent;
+
+      if (e.origin !== 'http://localhost:5001') {
+        // что-то прислали с неизвестного домена - проигнорируем..
+        return;
+      }
+
+      console.log(`получено: ${e.data}`);
+    },
+  });
 
   return (
-    <ThemeLayout>
-      <Container>
-        <Grid container spacing={5}>
-          <Grid item xs={12} sm={12}>
-            <Box mt={5} />
-            <Typography variant="h2" component="h1" gutterBottom>
+    <ThemeProvider theme={themeOrnamentDefault}>
+      <Container size="s" position="center">
+        <Grid>
+          <GridItem col={12}>
+            <Typography variant="heading-2xl" defaultMargin>
               Application 3
             </Typography>
-            <Typography variant="h4" component="h2" gutterBottom>
+            <Typography variant="heading-xl" defaultMargin>
               И это iframe!
             </Typography>
             <Button onClick={handleClick}>App3 Button</Button>
-          </Grid>
+          </GridItem>
         </Grid>
       </Container>
-    </ThemeLayout>
+    </ThemeProvider>
   );
 };
 

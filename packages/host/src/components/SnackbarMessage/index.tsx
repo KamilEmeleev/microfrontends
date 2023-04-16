@@ -1,23 +1,24 @@
 import * as React from 'react';
+
 import { SnackbarMessage as SnackbarMessageType, SnackbarKey } from 'notistack';
 
 export type GenerateMessageType = {
-    variant: 'info' | 'success' | 'danger';
-    title: string;
-    subtitle: string;
+  variant: 'info' | 'success' | 'danger';
+  title: string;
+  subtitle: string;
 };
 
 export interface SnackbarMessageProps {
-    key?: SnackbarKey;
-    message?: SnackbarMessageType;
-    ref: React.Ref<HTMLDivElement>;
+  key?: SnackbarKey;
+  message?: SnackbarMessageType;
+  ref: React.Ref<HTMLDivElement>;
 }
 
 const SnackbarMessage = (
-    props: SnackbarMessageProps,
-    ref: SnackbarMessageProps['ref']
+  props: SnackbarMessageProps,
+  ref: SnackbarMessageProps['ref']
 ) => {
-    return <div ref={ref}>{props.message}</div>;
+  return <div ref={ref}>{props.message}</div>;
 };
 
 export default React.forwardRef(SnackbarMessage);

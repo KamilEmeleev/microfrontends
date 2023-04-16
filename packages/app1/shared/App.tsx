@@ -5,13 +5,6 @@ import { Grid, GridItem } from '@ornament-ui/kit/Grid';
 import { Typography } from '@ornament-ui/kit/Typography';
 
 import { Button as LocalButton } from './Button';
-import { Copyright } from './Copyright';
-
-try {
-  customElements.define('wc-copyright', Copyright);
-} catch (err) {
-  console.warn(err);
-}
 
 const App = () => {
   const handleClick = () => {
@@ -51,7 +44,6 @@ const App = () => {
             стартапы.
           </Typography>
           <LocalButton onClick={handleClick} />
-          <wc-copyright />
         </GridItem>
       </Grid>
     </Container>

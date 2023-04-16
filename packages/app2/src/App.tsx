@@ -1,12 +1,16 @@
 import * as React from 'react';
-import { ThemeLayout } from '@abdt/ornament';
+
+import {
+  ThemeProvider,
+  themeOrnamentDefault,
+} from '@ornament-ui/kit/ThemeProvider';
 
 import LocalApp from '../shared/App';
 
 const App = () => (
-    <ThemeLayout>
-        <LocalApp />
-    </ThemeLayout>
+  <ThemeProvider theme={themeOrnamentDefault}>
+    <LocalApp />
+  </ThemeProvider>
 );
 
 export default App;

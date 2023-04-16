@@ -19,9 +19,12 @@
     "prestart": "pnpm install",
     "start": "turbo run start",
     "dev": "node inquirer/index.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "type-check": "turbo run type-check"
   },
   "devDependencies": {
+    "@types/react": "^18.0.35",
+    "@types/react-dom": "^18.0.11",
     "eslint-config-abdt": "^0.2.2",
     "eslint-plugin-prettier": "^4.0.0",
     "execa": "^5.0.0",
@@ -34,6 +37,7 @@
     "nano-staged": "^0.8.0",
     "rimraf": "^5.0.0",
     "turbo": "^1.9.1",
+    "typescript": "^5.0.4",
     "webpack": "^5.79.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^3.11.3"
@@ -44,6 +48,8 @@
     ]
   },
   "dependencies": {
-    "@ornament-ui/kit": "^0.2.7"
+    "@ornament-ui/kit": "^0.2.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
