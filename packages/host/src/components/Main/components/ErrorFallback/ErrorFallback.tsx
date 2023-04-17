@@ -1,21 +1,20 @@
 import * as React from 'react';
 
-import { Box, Container, Grid, Typography } from '@abdt/ornament';
+import { Container } from '@ornament-ui/kit/Container';
+import { Grid, GridItem } from '@ornament-ui/kit/Grid';
+import { spacing } from '@ornament-ui/kit/MixSpacing';
+import { Typography } from '@ornament-ui/kit/Typography';
 
-const ErrorFallback = ({ error }: { error: Error }) => {
+export const ErrorFallback = ({ error }: { error: Error }) => {
   return (
-    <Container>
-      <Grid container spacing={5}>
-        <Grid item xs={12} sm={12}>
-          <Box my={4}>
-            <Typography color="error" variant="body2" gutterBottom>
-              {error.message}
-            </Typography>
-          </Box>
-        </Grid>
+    <Container size="s" position="center" className={spacing({ py: '4xl' })}>
+      <Grid>
+        <GridItem col={12}>
+          <Typography color="error" variant="text-m_1" defaultMargin>
+            {error.message}
+          </Typography>
+        </GridItem>
       </Grid>
     </Container>
   );
 };
-
-export default ErrorFallback;

@@ -32,19 +32,6 @@ module.exports = {
         ],
       },
       {
-        test: /\.(woff(2)?|ttf|eot|svg|pdf|jpg)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'fonts/',
-              esModule: false,
-            },
-          },
-        ],
-      },
-      {
         test: /\.tsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,

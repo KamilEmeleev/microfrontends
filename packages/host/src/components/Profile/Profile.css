@@ -1,0 +1,3 @@
+.Profile .Indicator_border{
+  box-shadow: var(--color-space-space-95) 0 0 0 var(--border-width-m);
+}

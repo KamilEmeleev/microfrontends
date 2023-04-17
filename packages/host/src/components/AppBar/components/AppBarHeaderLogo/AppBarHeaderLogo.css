@@ -1,0 +1,6 @@
+.AppBarHeaderLogo {
+  width: var(--space-3xl);
+  height: var(--space-3xl);
+  background-color: var(--color-space-space-80);
+  border-radius: var(--border-radius-m);
+}

@@ -1,7 +1,3 @@
-function onClick() {
-  alert('Clicked!');
-}
-
 class Widget {
   constructor(config) {
     const { container } = config;
@@ -13,9 +9,8 @@ class Widget {
   }
 
   init() {
-    const button = document.createElement('button');
-    button.innerText = 'Inner';
-    button.onclick = onClick;
+    const button = document.createElement('div');
+    button.innerText = 'Widget';
     this.shadowRoot.appendChild(button);
   }
 }

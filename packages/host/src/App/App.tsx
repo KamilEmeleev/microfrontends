@@ -1,44 +1,45 @@
-import * as React from 'react';
-
-import { useSnackbar } from 'notistack';
-import useEventListener from 'use-typed-event-listener';
-
-import { useState, useCallback, useEffect, useContext } from 'react';
-
-import { Drawer } from '@abdt/ornament';
-
-import '@abdt/fonts';
-import './App.css';
+import React, { useEffect, useContext, type FC, type ReactNode } from 'react';
 
 import {
-  Navigation,
-  Message,
-  AppBar,
-  GenerateMessageType,
   Main,
+  AppBar,
+  AppBarHeader,
+  AppBarHeaderLogo,
+  AppBarBody,
+  AppBarFooter,
+  Navigation,
+  Profile,
+  AppBarHeaderTitle,
 } from '@components';
+import { Divider } from '@ornament-ui/kit/Divider';
+import {
+  useSnackbar,
+  type SnackbarCommonProps,
+} from '@ornament-ui/kit/Snackbar';
+import { useEventListener } from '@ornament-ui/kit/useEventListener';
+
+import logo from '../abb_logo.svg';
 
 import { AppContext } from './AppContext';
-import useStyles from './useStyles';
 
-const App: React.FC = () => {
-  const classes = useStyles();
+import './App.css';
+
+export type MessageType = {
+  variant: SnackbarCommonProps['status'];
+  title: string;
+  subtitle: string;
+};
+
+const App: FC<{ ThemeToggle?: ReactNode }> = ({ ThemeToggle }) => {
+  const { pushMessage } = useSnackbar();
   const { frame } = useContext(AppContext);
 
-  const [open, setOpen] = useState(false);
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  // this receives messages from iframe
+  useEventListener({
+    eventName: 'message',
+    handler: (e) => {
+      const event = e as MessageEvent;
 
-  const generateMessage = useCallback(
-    (event: CustomEvent<GenerateMessageType>): void => {
-      const id = enqueueSnackbar(
-        <Message {...event?.detail} close={() => closeSnackbar(id)} />
-      );
-    },
-    []
-  );
-
-  const handleMessage = useCallback(
-    (event) => {
       if (frame?.src.indexOf(event.origin) !== -1) {
         const { data } = event;
         const { type, payload } = data;
@@ -52,47 +53,49 @@ const App: React.FC = () => {
         }
       }
     },
-    [frame]
-  );
+  });
 
-  useEventListener(window, 'message', handleMessage);
-
-  useEventListener(
-    document,
-    'host:root-generate-message-event',
-    generateMessage as EventListener
-  );
+  // this listens for custom events
+  useEventListener({
+    element: document,
+    eventName: 'host:root-generate-message-event' as never,
+    handler: (e) => {
+      const event = e as CustomEvent<MessageType>;
+      const { title, subtitle: description, variant: status } = event.detail;
+      pushMessage({ title, description, status });
+    },
+  });
 
   useEffect(() => {
     document.dispatchEvent(
       new CustomEvent('host:root-generate-message-event', {
         detail: {
           variant: 'info',
-          title: '👋 Привет!',
-          subtitle: `Demo-demo-demo - Делаем Microfrontends`,
+          title: 'Demo-demo-demo – Making Microfrontends',
         },
       })
     );
   }, []);
 
-  const handleClickOpen = () => {
-    setOpen(!open);
-  };
-
   return (
-    <div className={classes.root}>
-      <AppBar open={open} onClick={handleClickOpen} />
-      <Drawer
-        className={classes.drawer}
-        variant="permanent"
-        anchor="left"
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <Navigation />
-      </Drawer>
-      <Main open={open} />
+    <div className="App">
+      <AppBar>
+        <AppBarHeader>
+          <AppBarHeaderLogo>
+            <img alt="Logo" src={logo} />
+          </AppBarHeaderLogo>
+          <AppBarHeaderTitle>Microfontends</AppBarHeaderTitle>
+          {ThemeToggle}
+        </AppBarHeader>
+        <Divider color="secondary" />
+        <AppBarBody>
+          <Navigation />
+        </AppBarBody>
+        <AppBarFooter>
+          <Profile />
+        </AppBarFooter>
+      </AppBar>
+      <Main />
     </div>
   );
 };

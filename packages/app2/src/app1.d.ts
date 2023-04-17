@@ -3,6 +3,7 @@ declare module "app1/Button" {
     import * as React from 'react';
     export interface ButtonProps {
         onClick?: () => void;
+        children?: React.ReactNode;
     }
     export const Button: React.FC<ButtonProps>;
 }

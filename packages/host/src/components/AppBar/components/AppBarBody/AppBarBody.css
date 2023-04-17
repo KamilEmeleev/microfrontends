@@ -1,0 +1,14 @@
+.AppBarBody {
+  border-radius: var(--border-radius-m);
+  /* flex: 1 0 auto; */
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.AppBarBody::-webkit-scrollbar {
+  display: none;
+}
+
+.AppBarBody .Typography, .AppBarBody .ListItemButton {
+  color: var(--color-space-space-30)
+}

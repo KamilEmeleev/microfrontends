@@ -1,0 +1,9 @@
+.AppBarFooter {
+  margin-top: auto;
+  border-radius: var(--border-radius-m);
+  height: 40px;
+}
+
+.AppBarFooter .ListItemText-TextPrimary {
+  color: var(--color-space-space-30)
+}

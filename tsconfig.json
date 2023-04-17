@@ -5,7 +5,19 @@
     "sourceMap": true,
     "strict": true,
     "jsx": "react",
+    "moduleResolution": "node",
+    "target": "esnext",
+    "declaration": true,
     "esModuleInterop": true,
-    "moduleResolution": "node"
-  }
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "importsNotUsedAsValues": "preserve"
+  },
+  "exclude": ["node_modules"]
 }

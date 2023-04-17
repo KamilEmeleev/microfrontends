@@ -11,6 +11,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
   entry: './src/index',
   mode: isProduction ? 'production' : 'development',
+  devtool: isProduction ? false : 'cheap-module-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     port: 5000,
@@ -101,11 +102,10 @@ module.exports = {
           },
         },
         {
-          '@abdt/ornament': {
+          '@ornament-ui/kit': {
             singleton: true,
           },
         },
-        '@material-ui/styles',
       ],
     }),
     new HtmlWebpackPlugin({

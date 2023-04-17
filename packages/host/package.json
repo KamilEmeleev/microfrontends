@@ -3,16 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@abdt/icons": "^0.0.32",
-    "@abdt/design-tokens": "^0.0.10",
-    "@abdt/fonts": "^0.0.3",
-    "@abdt/ornament": "0.2.4",
-    "@abdt/avatars": "^0.0.3",
-    "classnames": "^2.2.6",
-    "react-router-dom": "^5.2.0",
-    "notistack": "^1.0.3",
-    "react-error-boundary": "^3.1.0",
-    "use-typed-event-listener": "^3.0.0"
+    "@ornament-ui/kit": "^0.2.7",
+    "@ornament-ui/icons": "^0.0.9",
+    "@ornament-ui/avatars": "^0.0.1",
+    "react-router-dom": "^5.3.4",
+    "react-error-boundary": "^4.0.3"
   },
   "devDependencies": {
     "@babel/core": "7.12.10",
@@ -27,7 +22,6 @@
     "style-loader": "^2.0.0",
     "css-loader": "^5.0.2",
     "resolve-url-loader": "^3.1.2",
-    "file-loader": "^6.2.0",
     "@module-federation/dashboard-plugin": "^1.1.0",
     "fork-ts-checker-webpack-plugin": "^6.2.13",
     "copy-webpack-plugin": "^9.0.1"

@@ -1,7 +1,8 @@
-button {
-    background-color: aquamarine;
-    border: none;
-    border-radius: 4px;
-    padding: 8px;
-    font-size: 14px;
+div {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed black;
+  padding: 40px;
+  font-size: 18px;
 }

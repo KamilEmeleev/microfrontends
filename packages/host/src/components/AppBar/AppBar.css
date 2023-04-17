@@ -1,0 +1,49 @@
+.AppBar {
+  height: 100vh;
+  flex: 0 0 auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  width: calc(var(--space-6xl));
+  background-color: var(--color-space-space-95);
+  transition: width 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+  padding: var(--space-m) var(--space-m) var(--space-xl) var(--space-m);
+}
+
+.AppBar .Divider {
+  border-color: var(--color-space-space-80);
+}
+
+.AppBar[data-open="true"] {
+  width: calc(var(--space-6xl)*4);
+}
+
+.AppBar .List {
+  --list-gutter: 0;
+  --list-item-padding: var(--space-s);
+  --list-item-min-height: 40px;
+  display: flex;
+  gap: var(--space-s);
+  flex-direction: column;
+}
+
+.AppBar .ListItemButton {
+  border-radius: var(--border-radius-s);
+}
+
+.AppBar .ListItemButton:hover,
+.AppBar .ListItemButton:focus-visible {
+   background-color: var(--color-space-space-85);
+}
+
+.AppBar .ListItemButton:active {
+   background-color: var(--color-space-space-80);
+}
+
+.AppBar .ListItemButton:focus {
+   box-shadow: inset var(--shadow-outline-focused);
+}
+
+.AppBar .ListItemButton:focus:not(:focus-visible) {
+   box-shadow: none;
+}

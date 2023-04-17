@@ -83,6 +83,11 @@ module.exports = {
             singleton: true,
           },
         },
+        {
+          '@ornament-ui/kit': {
+            singleton: true,
+          },
+        },
       ],
     }),
     new CopyWebpackPlugin({

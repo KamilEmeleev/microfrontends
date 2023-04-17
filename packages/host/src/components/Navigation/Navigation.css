@@ -1,0 +1,13 @@
+.Navigation .List {
+  position: relative;
+}
+
+.Navigation .ListItemButton.active::after {
+  content: '';
+  height: 16px;
+  width: 2px;
+  background-color: var(--color-space-space-10);
+  position: absolute;
+  border-radius: 0 var(--border-radius-2xs) var(--border-radius-2xs) 0;
+  left: 0;
+}

@@ -1,5 +1,6 @@
 {
   "extends": "../../tsconfig",
+  "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {

@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-pnpm ./node_modules/.bin/nano-staged
+pnpm type-check && pnpm ./node_modules/.bin/nano-staged

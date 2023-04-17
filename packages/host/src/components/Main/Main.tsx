@@ -1,56 +1,25 @@
-import * as React from 'react';
+import './Main.css';
 
-import { styled, css } from '@abdt/ornament';
+import React, { type FC } from 'react';
+
+import { Typography } from '@ornament-ui/kit/Typography';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Switch, Route } from 'react-router-dom';
 
 import {
-  Frame,
+  IFrame,
+  FriendlyIFrame,
+  ErrorFallback,
   Progress,
   Welcome,
-  FIF,
-  FIF_SR,
-  ErrorFallback,
 } from './components';
 
 const App1 = React.lazy(() => import('app1/App'));
 const App2 = React.lazy(() => import('app2/App'));
 
-const drawerWidth = 240;
-
-const StyledMain = styled('main')<{ open?: boolean }>`
-  flex-grow: 1;
-  z-index: 11;
-  transition: ${({ theme }) =>
-    theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    })};
-  margin-left: ${-drawerWidth};
-  height: 100vh;
-  overflow: auto;
-  border-radius: 8px 0 0 8px;
-  background-color: #ffffff;
-  ${({ open }) =>
-    open &&
-    css`
-      flex-grow: 1;
-      transition: ${({ theme }) =>
-        theme.transitions.create('margin', {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.leavingScreen,
-        })};
-      margin-left: 0;
-    `}
-`;
-
-interface IMainProps {
-  open?: boolean;
-}
-
-const Main: React.FC<IMainProps> = ({ open }) => {
+export const Main: FC = () => {
   return (
-    <StyledMain open={open}>
+    <main className="Main">
       <Switch>
         <Route path="/" exact>
           <Welcome />
@@ -70,25 +39,19 @@ const Main: React.FC<IMainProps> = ({ open }) => {
           </React.Suspense>
         </Route>
         <Route path="/app3" key="3">
-          <Frame url="http://localhost:5003" />
+          <IFrame src="https://www.google.ru/" />
         </Route>
         <Route path="/app4" key="4">
-          <Frame url="https://social-card.ru" />
+          <IFrame src="http://localhost:5003" />
         </Route>
         <Route path="/app5" key="5">
-          <FIF url="https://cdn.social-card.ru/payment/main.js" />
-        </Route>
-        <Route path="/app6" key="6">
-          <FIF_SR url="http://localhost:5000/script.js">
-            <button>Outer</button>
-          </FIF_SR>
-        </Route>
-        <Route path="/app7" key="7">
-          <FIF_SR url="http://localhost:5004/main.js" />
+          <FriendlyIFrame url="http://localhost:5000/script.js">
+            <Typography variant="heading-2xl" defaultMargin>
+              FriendlyIFrame + ShadowDom
+            </Typography>
+          </FriendlyIFrame>
         </Route>
       </Switch>
-    </StyledMain>
+    </main>
   );
 };
-
-export default Main;

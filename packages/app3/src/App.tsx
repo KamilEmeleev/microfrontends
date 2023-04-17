@@ -3,12 +3,15 @@ import * as React from 'react';
 import { Button } from '@ornament-ui/kit/Button';
 import { Container } from '@ornament-ui/kit/Container';
 import { Grid, GridItem } from '@ornament-ui/kit/Grid';
+import { spacing } from '@ornament-ui/kit/MixSpacing';
 import {
   ThemeProvider,
   themeOrnamentDefault,
 } from '@ornament-ui/kit/ThemeProvider';
 import { Typography } from '@ornament-ui/kit/Typography';
 import { useEventListener } from '@ornament-ui/kit/useEventListener';
+
+import './App.css';
 
 const App = () => {
   const sendMessage = (type: string, payload?: unknown) => {
@@ -24,15 +27,15 @@ const App = () => {
   const handleClick = () => {
     sendMessage('host:root-generate-message-event', {
       variant: 'info',
-      title: 'Сообщение',
-      subtitle: `👋 Привет от Application 3!`,
+      title: "👋 I'm Application3",
     });
   };
 
   useEventListener({
     eventName: 'message',
     handler: (event) => {
-      // TODO: problem with type of event
+      // TODO: fix problem with type of event (example use-typed-event-listener)
+      // TODO: export UseEventListener type
       const e = event as MessageEvent;
 
       if (e.origin !== 'http://localhost:5001') {
@@ -46,16 +49,16 @@ const App = () => {
 
   return (
     <ThemeProvider theme={themeOrnamentDefault}>
-      <Container size="s" position="center">
+      <Container size="s" position="center" className={spacing({ py: '4xl' })}>
         <Grid>
           <GridItem col={12}>
             <Typography variant="heading-2xl" defaultMargin>
-              Application 3
+              Application3
             </Typography>
-            <Typography variant="heading-xl" defaultMargin>
-              И это iframe!
+            <Typography variant="text-xl" defaultMargin>
+              Iframe + Window.postMessage()
             </Typography>
-            <Button onClick={handleClick}>App3 Button</Button>
+            <Button onClick={handleClick}>Send PostMessage</Button>
           </GridItem>
         </Grid>
       </Container>
