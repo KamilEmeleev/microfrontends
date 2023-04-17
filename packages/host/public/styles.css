@@ -1,8 +1,18 @@
-div {
+button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 2px dashed black;
+  background-color: #fff;
+  cursor: pointer;
   padding: 40px;
   font-size: 18px;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+}
+
+button:active {
+  background-color: #dedede;
 }

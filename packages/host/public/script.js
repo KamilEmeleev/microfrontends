@@ -9,8 +9,13 @@ class Widget {
   }
 
   init() {
-    const button = document.createElement('div');
+    const button = document.createElement('button');
     button.innerText = 'Widget';
+
+    button.onclick = () => {
+      alert('Click!');
+    };
+
     this.shadowRoot.appendChild(button);
   }
 }
