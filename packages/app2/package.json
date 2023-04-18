@@ -2,20 +2,6 @@
   "name": "@microfrontends/app2",
   "version": "0.0.0",
   "private": true,
-  "devDependencies": {
-    "@babel/core": "7.12.10",
-    "@babel/preset-react": "7.12.10",
-    "@babel/preset-typescript": "7.12.7",
-    "babel-loader": "8.2.2",
-    "bundle-loader": "0.5.6",
-    "html-webpack-plugin": "4.5.2",
-    "serve": "11.3.2",
-    "style-loader": "^2.0.0",
-    "css-loader": "^5.0.2",
-    "resolve-url-loader": "^3.1.2",
-    "@module-federation/dashboard-plugin": "^1.1.0",
-    "fork-ts-checker-webpack-plugin": "^6.2.13"
-  },
   "scripts": {
     "start": "webpack-cli serve --mode development",
     "build": "webpack --mode production",

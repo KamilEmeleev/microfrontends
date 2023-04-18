@@ -13,7 +13,7 @@
   "scripts": {
     "prebuild": "pnpm install",
     "build": "turbo run build",
-    "clean": "turbo run clean && rimraf -rf node_modules && rimraf -rf pnpm-lock.yaml",
+    "clean": "turbo run clean && rimraf -rf pnpm-lock.yaml && rimraf -rf node_modules",
     "eslint": "turbo run eslint",
     "serve": "turbo run serve",
     "start": "turbo run start",
@@ -22,19 +22,30 @@
     "type-check": "turbo run type-check"
   },
   "devDependencies": {
+    "@babel/core": "7.12.10",
+    "@babel/preset-react": "7.12.10",
+    "@babel/preset-typescript": "7.12.7",
+    "@module-federation/dashboard-plugin": "^1.1.0",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
+    "babel-loader": "8.2.2",
+    "bundle-loader": "0.5.6",
+    "copy-webpack-plugin": "^7.0.0",
+    "css-loader": "^5.0.2",
     "eslint-config-abdt": "^0.2.2",
     "eslint-plugin-prettier": "^4.0.0",
     "execa": "^5.0.0",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^6.2.13",
+    "html-webpack-plugin": "4.5.2",
     "husky": "^8.0.3",
     "inquirer": "^7.3.3",
     "inquirer-table-prompt": "^0.2.1",
-    "lint-staged": "^10.5.2",
     "nano-staged": "^0.8.0",
+    "resolve-url-loader": "^3.1.2",
     "rimraf": "^5.0.0",
+    "serve": "14.2.0",
+    "style-loader": "^2.0.0",
     "turbo": "^1.9.1",
     "typescript": "^4.9.5",
     "webpack": "^5.79.0",
@@ -47,9 +58,9 @@
     ]
   },
   "dependencies": {
-    "@ornament-ui/kit": "^0.2.7",
-    "@ornament-ui/icons": "^0.0.9",
     "@ornament-ui/avatars": "^0.0.1",
+    "@ornament-ui/icons": "^0.0.9",
+    "@ornament-ui/kit": "^0.2.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
