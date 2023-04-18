@@ -9,5 +9,9 @@
     "clean": "rimraf -rf dist && rimraf -rf node_modules",
     "eslint": "eslint --ext .ts,.tsx src shared --fix",
     "type-check": "tsc --noEmit --pretty"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

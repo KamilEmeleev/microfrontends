@@ -11,7 +11,7 @@ module.exports = {
   entry: './src/index',
   mode: isProduction ? 'production' : 'development',
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    static: path.join(__dirname, 'dist'),
     port: 5002,
   },
   output: {

@@ -15,7 +15,7 @@ module.exports = {
   mode: isProduction ? 'production' : 'development',
   devtool: isProduction ? false : 'cheap-module-source-map',
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
+    static: path.resolve(__dirname, 'dist'),
     port: 5001,
   },
   output: {

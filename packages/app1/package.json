@@ -10,5 +10,9 @@
     "eslint": "eslint --ext .ts,.tsx src shared --fix",
     "type-check": "tsc --noEmit --pretty",
     "make-types": "make-federated-types --outputDir ./assets/types/"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
