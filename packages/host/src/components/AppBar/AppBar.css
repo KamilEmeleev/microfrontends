@@ -22,6 +22,7 @@
   --list-gutter: 0;
   --list-item-padding: var(--space-s);
   --list-item-min-height: 40px;
+  border-radius: var(--border-radius-s);
   display: flex;
   gap: var(--space-s);
   flex-direction: column;

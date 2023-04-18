@@ -14,6 +14,8 @@
       "cache": false
     },
     "clean": {},
-    "type-check": {}
+    "type-check": {
+      "cache": false
+    }
   }
 }
