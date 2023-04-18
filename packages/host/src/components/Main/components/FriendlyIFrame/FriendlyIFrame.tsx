@@ -66,7 +66,7 @@ export const FriendlyIFrame: FC<{
   }, [url]);
 
   return (
-    <Container size="s" position="center" className={spacing({ py: '4xl' })}>
+    <Container size="s" position="center" className={spacing({ my: '3xl' })}>
       <Grid>
         <GridItem col={12}>
           {children}

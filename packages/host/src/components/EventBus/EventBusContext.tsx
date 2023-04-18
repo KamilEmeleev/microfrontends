@@ -1,8 +1,8 @@
 import { createContext } from 'react';
 
-export interface IAppContext {
+export type EventBusContext = {
   frame?: HTMLIFrameElement | null;
   setFrame?: (frame: HTMLIFrameElement | null) => void;
-}
+};
 
-export const AppContext = createContext<IAppContext>({});
+export const EventBusContext = createContext<EventBusContext>({});

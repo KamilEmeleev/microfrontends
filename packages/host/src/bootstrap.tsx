@@ -8,16 +8,15 @@ import {
   ThemeProvider,
   themeOrnamentDefault,
   themeOrnamentDark,
-  Theme,
+  type Theme,
 } from '@ornament-ui/kit/ThemeProvider';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { EventBusProvider } from '@components';
 
-import { App, AppContext } from './App';
+import { App } from './App';
 
-const AppWrapper = () => {
-  const [frame, setFrame] = useState<HTMLIFrameElement | null>(null);
-
+const Root = () => {
   const themes: { [key in 'default' | 'dark']: Theme } = {
     default: themeOrnamentDefault,
     dark: themeOrnamentDark,
@@ -44,28 +43,28 @@ const AppWrapper = () => {
   };
 
   return (
-    <AppContext.Provider value={{ frame, setFrame }}>
-      <ThemeProvider theme={themes[themeName]}>
-        <SnackbarProvider
-          lifetime={10000}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
-          }}
-        >
+    <ThemeProvider theme={themes[themeName]}>
+      <SnackbarProvider
+        lifetime={10000}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+      >
+        <EventBusProvider>
           {/* TODO: migrate to react-router-dom@6 */}
           {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
           {/* @ts-ignore */}
           <BrowserRouter>
             <App ThemeToggle={<ThemeToggle />} />
           </BrowserRouter>
-        </SnackbarProvider>
-      </ThemeProvider>
-    </AppContext.Provider>
+        </EventBusProvider>
+      </SnackbarProvider>
+    </ThemeProvider>
   );
 };
 
 const rootElement = document.getElementById('root');
 const root = rootElement && createRoot(rootElement);
 
-root?.render(<AppWrapper />);
+root?.render(<Root />);

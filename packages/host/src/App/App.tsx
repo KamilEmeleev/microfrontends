@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, type FC, type ReactNode } from 'react';
+import React, { useEffect, type FC, type ReactNode } from 'react';
 
 import {
   Main,
@@ -12,69 +12,17 @@ import {
   AppBarHeaderTitle,
 } from '@components';
 import { Divider } from '@ornament-ui/kit/Divider';
-import {
-  useSnackbar,
-  type SnackbarCommonProps,
-} from '@ornament-ui/kit/Snackbar';
-import { useEventListener } from '@ornament-ui/kit/useEventListener';
+import { useSnackbar } from '@ornament-ui/kit/Snackbar';
 
 import logo from '../abb_logo.svg';
 
-import { AppContext } from './AppContext';
-
 import './App.css';
 
-export type MessageType = {
-  variant: SnackbarCommonProps['status'];
-  title: string;
-  subtitle: string;
-};
-
-const App: FC<{ ThemeToggle?: ReactNode }> = ({ ThemeToggle }) => {
+export const App: FC<{ ThemeToggle?: ReactNode }> = ({ ThemeToggle }) => {
   const { pushMessage } = useSnackbar();
-  const { frame } = useContext(AppContext);
-
-  // this receives messages from iframe
-  useEventListener({
-    eventName: 'message',
-    handler: (e) => {
-      const event = e as MessageEvent;
-
-      if (frame?.src.indexOf(event.origin) !== -1) {
-        const { data } = event;
-        const { type, payload } = data;
-
-        if (type === 'host:root-generate-message-event') {
-          document.dispatchEvent(
-            new CustomEvent('host:root-generate-message-event', {
-              detail: payload,
-            })
-          );
-        }
-      }
-    },
-  });
-
-  // this listens for custom events
-  useEventListener({
-    element: document,
-    eventName: 'host:root-generate-message-event' as never,
-    handler: (e) => {
-      const event = e as CustomEvent<MessageType>;
-      const { title, subtitle: description, variant: status } = event.detail;
-      pushMessage({ title, description, status });
-    },
-  });
 
   useEffect(() => {
-    document.dispatchEvent(
-      new CustomEvent('host:root-generate-message-event', {
-        detail: {
-          variant: 'info',
-          title: 'Demo-demo-demo – Making Microfrontends',
-        },
-      })
-    );
+    pushMessage({ title: 'Demo-demo-demo – Making Microfrontends' });
   }, []);
 
   return (
@@ -91,6 +39,7 @@ const App: FC<{ ThemeToggle?: ReactNode }> = ({ ThemeToggle }) => {
         <AppBarBody>
           <Navigation />
         </AppBarBody>
+        <Divider color="secondary" style={{ visibility: 'hidden' }} />
         <AppBarFooter>
           <Profile />
         </AppBarFooter>
@@ -99,5 +48,3 @@ const App: FC<{ ThemeToggle?: ReactNode }> = ({ ThemeToggle }) => {
     </div>
   );
 };
-
-export default App;

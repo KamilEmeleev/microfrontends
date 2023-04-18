@@ -20,7 +20,7 @@ const App = () => {
   };
 
   return (
-    <Container size="s" position="center" className={spacing({ py: '4xl' })}>
+    <Container size="s" position="center" className={spacing({ my: '3xl' })}>
       <Grid>
         <GridItem col={12}>
           <Typography variant="heading-2xl" defaultMargin>
