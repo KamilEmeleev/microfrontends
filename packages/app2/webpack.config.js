@@ -1,9 +1,9 @@
+const path = require('path');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 const DashboardPlugin = require('@module-federation/dashboard-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-
-const path = require('path');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -12,6 +12,7 @@ module.exports = {
   mode: isProduction ? 'production' : 'development',
   devServer: {
     static: path.join(__dirname, 'dist'),
+    headers: { 'Access-Control-Allow-Origin': '*' },
     port: 5002,
   },
   output: {
