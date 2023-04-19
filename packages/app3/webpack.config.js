@@ -10,6 +10,7 @@ module.exports = {
   mode: isProduction ? 'production' : 'development',
   devServer: {
     static: path.join(__dirname, 'dist'),
+    headers: { 'Access-Control-Allow-Origin': '*' },
     port: 5003,
   },
   output: {
