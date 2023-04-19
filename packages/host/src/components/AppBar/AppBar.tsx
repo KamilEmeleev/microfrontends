@@ -10,7 +10,7 @@ type AppBarProps = StackProps;
 
 // TODO: [@ornament-ui/kit] List: add --list-item-border-radius
 export const AppBar: FC<AppBarProps> = ({ children }) => {
-  const [open, { on, off }] = useBoolean(true);
+  const [open, { on, off }] = useBoolean(false);
 
   return (
     <Stack

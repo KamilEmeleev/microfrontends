@@ -11,7 +11,6 @@ import {
   type Theme,
 } from '@ornament-ui/kit/ThemeProvider';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 import { EventBusProvider } from '@components';
 
 import { App } from './App';
@@ -52,12 +51,7 @@ const Root = () => {
         }}
       >
         <EventBusProvider>
-          {/* TODO: migrate to react-router-dom@6 */}
-          {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-          {/* @ts-ignore */}
-          <BrowserRouter>
-            <App ThemeToggle={<ThemeToggle />} />
-          </BrowserRouter>
+          <App ThemeToggle={<ThemeToggle />} />
         </EventBusProvider>
       </SnackbarProvider>
     </ThemeProvider>
