@@ -16,6 +16,7 @@ module.exports = {
   devtool: isProduction ? false : 'cheap-module-source-map',
   devServer: {
     static: path.resolve(__dirname, 'dist'),
+    headers: { 'Access-Control-Allow-Origin': '*' },
     port: 5001,
   },
   output: {
