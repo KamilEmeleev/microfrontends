@@ -7,14 +7,11 @@
     "@ornament-ui/icons": "^0.0.9",
     "@ornament-ui/kit": "^0.2.7",
     "react-error-boundary": "^4.0.4",
-    "react-router-dom": "^5.3.4"
+    "wouter": "^2.10.1"
   },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@types/react-router-dom": "^5.3.3"
   },
   "scripts": {
     "start": "webpack-cli serve --mode development",

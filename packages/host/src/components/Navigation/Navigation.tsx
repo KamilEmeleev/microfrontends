@@ -1,7 +1,6 @@
 import React from 'react';
 import type { FC } from 'react';
 
-import { DocumentIcon } from '@ornament-ui/icons';
 import {
   List,
   ListItem,
@@ -9,33 +8,37 @@ import {
   ListItemIcon,
   ListItemText,
 } from '@ornament-ui/kit/List';
-import { useLocation, Link } from 'react-router-dom';
+import { Link, useRoute } from 'wouter';
 
 import './Navigation.css';
 
 import { apps } from './helper';
 
-// TODO: [ornament-ui] something has gone wrong with polymorphic type in typescript 5
-export const Navigation: FC = () => {
-  const location = useLocation();
+const NavigationItem: FC<(typeof apps)[number]> = ({
+  link,
+  title,
+  icon: Icon,
+}) => {
+  const [isActive] = useRoute(link);
 
   return (
+    <ListItem disableGutters>
+      <ListItemButton as={Link} to={link} className={isActive ? 'active' : ''}>
+        <ListItemIcon>
+          <Icon size="m" />
+        </ListItemIcon>
+        <ListItemText primary={title} />
+      </ListItemButton>
+    </ListItem>
+  );
+};
+
+// TODO: [ornament-ui] something has gone wrong with polymorphic type in typescript 5
+export const Navigation = () => {
+  return (
     <List as="nav" className="Navigation">
-      {apps.map(({ title, link, icon: Icon }, index) => {
-        return (
-          <ListItem key={index} disableGutters>
-            <ListItemButton
-              as={Link}
-              to={link}
-              className={location.pathname === link ? 'active' : ''}
-            >
-              <ListItemIcon>
-                {Icon ? <Icon size="m" /> : <DocumentIcon size="m" />}
-              </ListItemIcon>
-              <ListItemText primary={title} />
-            </ListItemButton>
-          </ListItem>
-        );
+      {apps.map((app, index) => {
+        return <NavigationItem {...app} key={index} />;
       })}
     </List>
   );
