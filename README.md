@@ -6,7 +6,13 @@ My presentation: ["Делаем Microfrontends"](https://docs.google.com/present
 
 ## Development
 
-Run `pmpn install && pnpm start`.
+Run install `pnpm install`
+
+Run all packages `pnpm start`
+
+Run selected packages `pnpm dev`
+
+## Apps
 
 - Host: [localhost:5000](http://localhost:5000/)
 - App1: [localhost:5001](http://localhost:5001/)
