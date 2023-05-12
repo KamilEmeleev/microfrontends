@@ -32,7 +32,7 @@ export const App: FC<{ ThemeToggle?: ReactNode }> = ({ ThemeToggle }) => {
           <AppBarHeaderLogo>
             <img alt="Logo" src={logo} />
           </AppBarHeaderLogo>
-          <AppBarHeaderTitle>Microfontends</AppBarHeaderTitle>
+          <AppBarHeaderTitle>Microfrontends</AppBarHeaderTitle>
           {ThemeToggle}
         </AppBarHeader>
         <Divider color="secondary" />

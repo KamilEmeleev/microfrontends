@@ -1,4 +1,4 @@
-import React, { type FC, type ReactNode, useState } from 'react';
+import React, { type FC, type ReactNode, useState, useRef } from 'react';
 
 import { useEventListener } from '@ornament-ui/kit/useEventListener';
 import {
@@ -15,6 +15,7 @@ export type MessageType = {
 };
 
 export const EventBusProvider: FC<{ children: ReactNode }> = ({ children }) => {
+  const docRef = useRef<Document>(document);
   const [frame, setFrame] = useState<HTMLIFrameElement | null>(null);
 
   const { pushMessage } = useSnackbar();
@@ -22,9 +23,7 @@ export const EventBusProvider: FC<{ children: ReactNode }> = ({ children }) => {
   // this receives messages from iframe
   useEventListener({
     eventName: 'message',
-    handler: (e) => {
-      const event = e as MessageEvent;
-
+    handler: (event) => {
       if (frame?.src.indexOf(event.origin) !== -1) {
         const { data } = event;
         const { type, payload } = data;
@@ -42,8 +41,8 @@ export const EventBusProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   // this listens for custom events
   useEventListener({
-    element: document,
-    eventName: 'host:root-generate-message-event' as never,
+    element: docRef,
+    eventName: 'host:root-generate-message-event',
     handler: (e) => {
       const event = e as CustomEvent<MessageType>;
       const { title, subtitle: description, variant: status } = event.detail;

@@ -14,6 +14,7 @@ import { createRoot } from 'react-dom/client';
 import { EventBusProvider } from '@components';
 
 import { App } from './App';
+import { useAppBar } from './components/AppBar/AppBarContext';
 
 const Root = () => {
   const themes: { [key in 'default' | 'dark']: Theme } = {
@@ -28,10 +29,13 @@ const Root = () => {
   };
 
   const ThemeToggle: React.FC = () => {
+    const { open } = useAppBar();
+
     return (
       <IconButton
         variant="function"
         className={spacing({ ml: 'auto' })}
+        tabIndex={open ? 0 : -1}
         style={{
           color: 'var(--color-space-space-20)',
         }}

@@ -33,11 +33,7 @@ const App = () => {
 
   useEventListener({
     eventName: 'message',
-    handler: (event) => {
-      // TODO: fix problem with type of event (example use-typed-event-listener)
-      // TODO: export UseEventListener type
-      const e = event as MessageEvent;
-
+    handler: (e) => {
       if (e.origin !== 'http://localhost:5001') {
         // что-то прислали с неизвестного домена - проигнорируем..
         return;

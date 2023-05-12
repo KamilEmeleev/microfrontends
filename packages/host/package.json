@@ -4,8 +4,7 @@
   "private": true,
   "dependencies": {
     "@ornament-ui/avatars": "^0.0.1",
-    "@ornament-ui/icons": "^0.0.9",
-    "@ornament-ui/kit": "^0.2.7",
+    "@ornament-ui/icons": "^0.0.11",
     "react-error-boundary": "^4.0.4",
     "wouter": "^2.10.1"
   },

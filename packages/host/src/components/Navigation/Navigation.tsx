@@ -3,14 +3,16 @@ import type { FC } from 'react';
 
 import {
   List,
-  ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
 } from '@ornament-ui/kit/List';
 import { Link, useRoute } from 'wouter';
+import { Tooltip } from '@ornament-ui/kit/Tooltip';
 
 import './Navigation.css';
+
+import { useAppBar } from '../AppBar/AppBarContext';
 
 import { apps } from './helper';
 
@@ -20,16 +22,17 @@ const NavigationItem: FC<(typeof apps)[number]> = ({
   icon: Icon,
 }) => {
   const [isActive] = useRoute(link);
+  const { open } = useAppBar();
 
   return (
-    <ListItem disableGutters>
+    <Tooltip label={title} offset={[0, 20]} placement="right" disabled={open}>
       <ListItemButton as={Link} to={link} className={isActive ? 'active' : ''}>
         <ListItemIcon>
           <Icon size="m" />
         </ListItemIcon>
         <ListItemText primary={title} />
       </ListItemButton>
-    </ListItem>
+    </Tooltip>
   );
 };
 

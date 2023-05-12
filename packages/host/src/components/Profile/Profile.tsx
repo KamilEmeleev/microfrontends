@@ -17,7 +17,6 @@ type ProfileProps = {
 
 // TODO: [@ornament-ui/avatars] remove dist
 // TODO: [@ornament-ui/avatars] svgo optimize
-// TODO: [@ornament-ui/kit] --indicator-border-color
 export const Profile: React.FC<ProfileProps> = ({
   fullName = 'Kamil Emeleev',
 }) => {

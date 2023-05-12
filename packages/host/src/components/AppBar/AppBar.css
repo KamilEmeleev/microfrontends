@@ -1,4 +1,8 @@
 .AppBar {
+  position: relative;
+}
+
+.AppBarPanel {
   height: 100vh;
   flex: 0 0 auto;
   overflow-x: hidden;
@@ -10,41 +14,25 @@
   padding: var(--space-m) var(--space-m) var(--space-xl) var(--space-m);
 }
 
-.AppBar .Divider {
-  border-color: var(--color-space-space-80);
-}
-
-.AppBar[data-open="true"] {
+.AppBarPanel[data-open="true"] {
   width: calc(var(--space-6xl)*4);
 }
 
+.AppBar .Divider {
+  border-color: var(--color-space-space-80);
+}
 .AppBar .List {
   --list-gutter: 0;
   --list-item-padding: var(--space-s);
   --list-item-min-height: 40px;
-  border-radius: var(--border-radius-s);
-  display: flex;
-  gap: var(--space-s);
-  flex-direction: column;
+  --list-item-border-radius: var(--border-radius-s);
+  --list-gap: var(--space-s);
 }
 
-.AppBar .ListItemButton {
-  border-radius: var(--border-radius-s);
-}
-
-.AppBar .ListItemButton:hover,
-.AppBar .ListItemButton:focus-visible {
+.AppBar .ListItemButton:hover {
    background-color: var(--color-space-space-85);
 }
 
 .AppBar .ListItemButton:active {
    background-color: var(--color-space-space-80);
-}
-
-.AppBar .ListItemButton:focus {
-   box-shadow: inset var(--shadow-outline-focused);
-}
-
-.AppBar .ListItemButton:focus:not(:focus-visible) {
-   box-shadow: none;
 }
